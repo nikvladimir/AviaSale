@@ -39,12 +39,21 @@ android {
 }
 
 dependencies {
+    // Models
+    implementation(project(":common"))
+//    implementation(project(":airtickets"))
+    implementation(project(":hotels"))
+    implementation(project(":shorter"))
+    implementation(project(":subscribers"))
+    implementation(project(":profile"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
+    // Tests
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
