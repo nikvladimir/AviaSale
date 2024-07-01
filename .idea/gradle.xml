@@ -9,7 +9,12 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/airTickets" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/hotels" />
+            <option value="$PROJECT_DIR$/profile" />
+            <option value="$PROJECT_DIR$/shorter" />
+            <option value="$PROJECT_DIR$/subscribers" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
