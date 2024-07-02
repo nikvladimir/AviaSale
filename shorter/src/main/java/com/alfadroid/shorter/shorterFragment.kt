@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 
 
-class shorterFragment : Fragment() {
+class ShorterFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

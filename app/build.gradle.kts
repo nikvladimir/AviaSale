@@ -41,7 +41,7 @@ android {
 dependencies {
     // Models
     implementation(project(":common"))
-//    implementation(project(":airtickets"))
+    implementation(project(":airTickets"))
     implementation(project(":hotels"))
     implementation(project(":shorter"))
     implementation(project(":subscribers"))
