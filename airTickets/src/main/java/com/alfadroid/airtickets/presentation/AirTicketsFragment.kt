@@ -38,5 +38,10 @@ class AirTicketsFragment : Fragment() {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             adapter = RecyclerViewAdapter(items)
         }
+
+        binding.etDestination.setOnClickListener {
+            val bottomSheet = BottomSheetFragment()
+            bottomSheet.show(childFragmentManager, "BottomSheetFragment")
+        }
     }
 }
