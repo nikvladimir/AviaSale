@@ -1,7 +1,6 @@
-package com.alfadroid.airtickets.domain
+package com.alfadroid.airtickets.presentation
 
 import android.view.View
-import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
 import com.alfadroid.airtickets.databinding.RecyclerViewItemBinding
 

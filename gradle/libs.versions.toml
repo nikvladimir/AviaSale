@@ -11,6 +11,16 @@ constraintlayout = "2.1.4"
 okhttp3 = "4.7.2"
 retrofit = "2.9.0"
 
+# viewmodel
+lifecycleViewmodelAndroid = "2.8.3"
+
+# coroutines
+kotlinxCoroutinesAndroid = "1.8.0"
+kotlinxCoroutinesCore = "1.7.3"
+
+# koin
+koinAndroidViewmodel = "3.1.5"
+
 # tests
 junit = "4.13.2"
 
@@ -32,6 +42,17 @@ okhttp3-okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref 
 okhttp3-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp3" }
 retrofit2-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit2-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+
+# viewmodel
+androidx-lifecycle-viewmodel-android = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-android", version.ref = "lifecycleViewmodelAndroid" }
+
+# coroutines
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
+
+# koin
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroidViewmodel" }
+koin-android-viewmodel = { module = "io.insert-koin:koin-android-viewmodel", version.ref = "koinAndroidViewmodel" }
 
 # tests
 junit = { group = "junit", name = "junit", version.ref = "junit" }

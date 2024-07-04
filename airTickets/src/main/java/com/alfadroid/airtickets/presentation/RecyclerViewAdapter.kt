@@ -1,4 +1,4 @@
-package com.alfadroid.airtickets.domain
+package com.alfadroid.airtickets.presentation
 
 import android.view.LayoutInflater
 import android.view.View

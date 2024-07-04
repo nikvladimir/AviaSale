@@ -1,7 +1,7 @@
-package com.alfadroid.airtickets.data.retrofit
+package com.alfadroid.airtickets.data.dto
 
 data class OffersDTO(
-    val id: String,
+    val id: Int,
     val title: String,
     val town: String,
     val price: Price,
