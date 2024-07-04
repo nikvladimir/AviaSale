@@ -58,15 +58,28 @@
         app:layout_constraintTop_toBottomOf="@+id/et_destination" />
 
 
-    <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/recycler_view_recommendation_fr"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintlayout_for_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="215dp"
         android:layout_marginTop="30dp"
-        android:orientation="horizontal"
-        android:scrollbars="horizontal"
-        tools:listitem="@layout/recycler_view_item"
-        app:layout_constraintTop_toBottomOf="@+id/tv_music_header" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_music_header">
+
+        <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/recycler_view_offers_fr"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:scrollbars="horizontal"
+            tools:listitem="@layout/recycler_view_item" />
+
+        <TextView
+            android:id="@+id/notification_no_net_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/button_show_all_places"
@@ -81,7 +94,7 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_view_recommendation_fr" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_for_recycler_view" />
 
 
     <TextView
