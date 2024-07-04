@@ -4,74 +4,131 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".presentation.AirTicketsFragment">
 
     <TextView
         android:id="@+id/tv_main_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:gravity="center_horizontal"
+        android:layout_width="172dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
         android:text="Поиск дешевых\nавиабилетов"
-        android:textColor="@color/grey4"
+        android:textColor="@color/grey7"
+        android:textSize="22sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/et_departure"
+    <FrameLayout
+        android:id="@+id/background_search_frame_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
-        android:text="Минск"
-        android:textColor="@color/grey6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_main_header" />
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/rounded_corner_background"
+        app:layout_constraintTop_toBottomOf="@+id/tv_main_header">
 
-    <TextView
-        android:id="@+id/et_destination"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="24dp"
-        android:text="Куда - Турция"
-        android:textColor="@color/grey6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_departure" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="17dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/grey2"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="32dp">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/image_magnifying_glass_for_searching"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="@string/image_magnifying_glass_for_searching"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/magnifying_glass_for_searching" />
+
+                <TextView
+                    android:id="@+id/et_departure"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="17dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/search_departure_city_minsk"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/image_magnifying_glass_for_searching"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/dividing_line"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/grey5"
+                    app:layout_constraintEnd_toEndOf="@id/et_departure"
+                    app:layout_constraintStart_toStartOf="@id/et_departure"
+                    app:layout_constraintTop_toBottomOf="@id/et_departure" />
+
+                <TextView
+                    android:id="@+id/et_destination"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:paddingBottom="16dp"
+                    android:text="@string/search_destination_city_turkish"
+                    android:textColor="@color/grey6"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/dividing_line"
+                    app:layout_constraintTop_toBottomOf="@+id/dividing_line" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
 
     <TextView
         android:id="@+id/tv_music_header"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="30dp"
-        android:gravity="center_horizontal"
-        android:text="Музыкально отлететь"
-        android:textColor="@color/grey2"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="35dp"
+        android:textSize="22sp"
+        android:layout_marginRight="15dp"
+        android:text="@string/text_view_text_fly_away_musically"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_destination" />
-
+        app:layout_constraintTop_toBottomOf="@+id/background_search_frame_layout" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintlayout_for_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="215dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="19dp"
         app:layout_constraintTop_toBottomOf="@+id/tv_music_header">
 
-        <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_offers_fr"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:scrollbars="horizontal"
-            tools:listitem="@layout/recycler_view_item" />
+            tools:listitem="@layout/recycler_view_offers_item" />
 
         <TextView
             android:id="@+id/notification_no_net_tv"
@@ -81,31 +138,36 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_show_all_places"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:backgroundTint="@color/grey4"
-        android:text="Показать все места"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/grey2"
+        android:text="@string/show_all_places"
         android:textAllCaps="false"
-        android:textColor="@color/grey7"
+        android:textColor="@color/white"
         android:textStyle="italic"
+        app:cornerRadius="8dp"
+        android:textSize="16sp"
+        app:layout_constraintCircleRadius="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintlayout_for_recycler_view" />
-
 
     <TextView
         android:id="@+id/tv_your_first_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:gravity="center_horizontal"
         android:text="Ваш первый раз"
-        android:textSize="24sp"
+        android:textColor="@color/grey2"
+        android:textSize="22sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_show_all_places" />
 </androidx.constraintlayout.widget.ConstraintLayout>
