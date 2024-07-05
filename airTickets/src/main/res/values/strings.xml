@@ -10,4 +10,15 @@
     <string name="name_second_name">Имя фамилия</string>
     <string name="artist_photo">Artist photo</string>
     <string name="icon_offer_plane">icon_offer_plane</string>
+    <string name="icon_plain_bottom_sheet">icon_plain_bottom_sheet</string>
+    <string name="icon_magnifying_glass_for_bottom_sheet">icon_magnifying_glass_for_bottom_sheet</string>
+    <string name="phuket">Пхукет</string>
+    <string name="popular_destination">Популярное направление</string>
+    <string name="anywhere">Куда угодно</string>
+    <string name="weekends">Выходные</string>
+    <string name="difficult_path_route">difficult path route</string>
+    <string name="hot_tickets">Горячие\nбилеты</string>
+    <string name="istanbul">Стамбул</string>
+    <string name="sochi">Сочи</string>
+    <string name="difficult_route">Сложный\nмаршрут</string>
 </resources>

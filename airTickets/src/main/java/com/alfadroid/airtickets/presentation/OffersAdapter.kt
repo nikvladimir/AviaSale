@@ -2,7 +2,7 @@ package com.alfadroid.airtickets.presentation
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.alfadroid.airtickets.databinding.RecyclerViewItemBinding
+import com.alfadroid.airtickets.databinding.RecyclerViewOffersItemBinding
 
 class OffersAdapter()  {
 
@@ -10,7 +10,7 @@ class OffersAdapter()  {
         itemView: View,
     ) : RecyclerView.ViewHolder(itemView) {
 
-        private val binding = RecyclerViewItemBinding.bind(itemView)
+        private val binding = RecyclerViewOffersItemBinding.bind(itemView)
 
     }
 

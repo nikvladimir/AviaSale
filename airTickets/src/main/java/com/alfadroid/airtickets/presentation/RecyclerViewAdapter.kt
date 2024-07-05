@@ -17,14 +17,14 @@ class RecyclerViewAdapter(private val items: List<Item>) :
     RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val imageView: ImageView = view.findViewById(R.id.item_image)
+        val imageView: ImageView = view.findViewById(R.id.item_offer_image)
         val textView: TextView = view.findViewById(R.id.item_text)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater
             .from(parent.context)
-            .inflate(R.layout.recycler_view_item, parent, false)
+            .inflate(R.layout.recycler_view_offers_item, parent, false)
         return ViewHolder(view)
     }
 
