@@ -2,7 +2,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="image_magnifying_glass_for_searching">image_magnifying_glass_for_searching</string>
-    <string name="search_departure_city_minsk">Минск</string>
+    <string name="search_departure_city_minsk">Откуда - Москва</string>
     <string name="search_destination_city_turkish">Куда - Турция</string>
     <string name="text_view_text_fly_away_musically">Музыкально отлететь</string>
     <string name="show_all_places">Показать все места</string>
@@ -16,7 +16,7 @@
     <string name="popular_destination">Популярное направление</string>
     <string name="anywhere">Куда угодно</string>
     <string name="weekends">Выходные</string>
-    <string name="difficult_path_route">difficult path route</string>
+    <string name="complex_path_route">complex path route</string>
     <string name="hot_tickets">Горячие\nбилеты</string>
     <string name="istanbul">Стамбул</string>
     <string name="sochi">Сочи</string>

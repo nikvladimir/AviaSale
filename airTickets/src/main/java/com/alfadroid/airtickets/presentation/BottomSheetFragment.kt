@@ -7,18 +7,29 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.FrameLayout
+import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.alfadroid.airtickets.R
+import com.alfadroid.airtickets.databinding.FragmentBottomSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class BottomSheetFragment : BottomSheetDialogFragment() {
 
+    private lateinit var binding: FragmentBottomSheetBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_bottom_sheet, container, false)
+    ): View {
+        binding = FragmentBottomSheetBinding.inflate(layoutInflater)
+
+        binding.clIstanbul.setOnClickListener { binding.etDeparture.text = getString(R.string.istanbul) }
+        binding.clSochi.setOnClickListener { binding.etDeparture.text = getString(R.string.sochi) }
+        binding.clPhuket.setOnClickListener { binding.etDeparture.text = getString(R.string.phuket) }
+
+        return binding.root
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
