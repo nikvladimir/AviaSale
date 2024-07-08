@@ -9,6 +9,17 @@
     android:padding="16dp"
     tools:context=".presentation.DestinationBottomSheetFragment">
 
+    <View
+        android:id="@+id/drag_handle"
+        android:layout_width="38dp"
+        android:layout_height="5dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/drag_handle_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginTop="16dp" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view_input_fields"
         android:layout_width="0dp"
@@ -80,16 +91,18 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
+                android:hint="@string/destination_place"
                 android:paddingBottom="16dp"
                 android:text="@string/search_destination_city_turkish"
                 android:textColor="@color/grey6"
+                android:textColorHint="@color/grey6"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@id/icon_cross"
+                app:layout_constraintEnd_toStartOf="@id/iv_clear_destination"
                 app:layout_constraintStart_toEndOf="@id/image_magnifying_glass_for_bottom_sheet"
                 app:layout_constraintTop_toBottomOf="@+id/dividing_line" />
 
             <ImageView
-                android:id="@+id/icon_cross"
+                android:id="@+id/iv_clear_destination"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginTop="8dp"
