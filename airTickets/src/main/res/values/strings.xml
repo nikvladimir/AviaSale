@@ -20,5 +20,5 @@
     <string name="hot_tickets">Горячие\nбилеты</string>
     <string name="istanbul">Стамбул</string>
     <string name="sochi">Сочи</string>
-    <string name="difficult_route">Сложный\nмаршрут</string>
+    <string name="complex_route">Сложный\nмаршрут</string>
 </resources>

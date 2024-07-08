@@ -1,5 +1,5 @@
 package com.alfadroid.airtickets.data.dto
 
-data class Offers (
+data class Offers(
     val offers: List<OffersDTO>
 )

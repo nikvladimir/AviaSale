@@ -7,23 +7,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.FrameLayout
-import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.alfadroid.airtickets.R
-import com.alfadroid.airtickets.databinding.FragmentBottomSheetBinding
+import com.alfadroid.airtickets.databinding.FragmentDestinationBottomSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class BottomSheetFragment : BottomSheetDialogFragment() {
+class DestinationBottomSheetFragment : BottomSheetDialogFragment() {
 
-    private lateinit var binding: FragmentBottomSheetBinding
+    private lateinit var binding: FragmentDestinationBottomSheetBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentBottomSheetBinding.inflate(layoutInflater)
+        binding = FragmentDestinationBottomSheetBinding.inflate(layoutInflater)
 
         binding.clIstanbul.setOnClickListener { binding.etDeparture.text = getString(R.string.istanbul) }
         binding.clSochi.setOnClickListener { binding.etDeparture.text = getString(R.string.sochi) }

@@ -5,8 +5,8 @@ data class OffersDTO(
     val title: String,
     val town: String,
     val price: Price,
-)
-
-data class Price(
-    val value: Int
-)
+) {
+    data class Price(
+        val value: Int
+    )
+}
