@@ -9,17 +9,17 @@ constraintlayout = "2.1.4"
 
 # network
 okhttp3 = "4.7.2"
-retrofit = "2.9.0"
+retrofit = "2.11.0"
 
 # viewmodel
 lifecycleViewmodelAndroid = "2.8.3"
 
 # coroutines
 kotlinxCoroutinesAndroid = "1.8.0"
-kotlinxCoroutinesCore = "1.7.3"
+kotlinxCoroutinesCore = "1.8.0"
 
 # koin
-koinAndroidViewmodel = "3.1.5"
+koinAndroid = "3.1.5"
 
 # tests
 junit = "4.13.2"
@@ -51,8 +51,7 @@ kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutine
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
 
 # koin
-koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroidViewmodel" }
-koin-android-viewmodel = { module = "io.insert-koin:koin-android-viewmodel", version.ref = "koinAndroidViewmodel" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroid" }
 
 # tests
 junit = { group = "junit", name = "junit", version.ref = "junit" }
