@@ -1,5 +1,4 @@
 <resources>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="image_magnifying_glass_for_searching">image_magnifying_glass_for_searching</string>
     <string name="search_departure_city_minsk">Откуда - Москва</string>
@@ -20,5 +19,14 @@
     <string name="hot_tickets">Горячие\nбилеты</string>
     <string name="istanbul">Стамбул</string>
     <string name="sochi">Сочи</string>
+
+    <!--    fragment_departure-->
+    <string name="view_all_tickets">Посмотреть все билеты</string>
+    <string name="destination_place">Место назначения</string>
+    <string name="icon_back_arrow_departure_fragment">icon_back_arrow_departure_fragment</string>
+
+    <!--    quick_buttons-->
+    <string name="hot_tickets_fragment">Горячие билеты</string>
     <string name="complex_route">Сложный\nмаршрут</string>
+
 </resources>
