@@ -3,21 +3,21 @@
     <item
         android:id="@+id/navigation_airTickets"
         android:icon="@drawable/ic_tickets"
-        android:title="Tickets" />
+        android:title="@string/tickets" />
     <item
         android:id="@+id/navigation_hotels"
         android:icon="@drawable/ic_hotels"
-        android:title="Hotels" />
+        android:title="@string/hotels" />
     <item
         android:id="@+id/navigation_shorter"
         android:icon="@drawable/ic_maps"
-        android:title="Maps" />
+        android:title="@string/maps" />
     <item
         android:id="@+id/navigation_subscribers"
         android:icon="@drawable/ic_subscribers"
-        android:title="Subscribers" />
+        android:title="@string/subscribers" />
     <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_profile"
-        android:title="Profile" />
+        android:title="@string/profile" />
 </menu>
