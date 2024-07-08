@@ -41,6 +41,10 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+//    lifecycle viewModels
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.activity.ktx)
+    implementation(libs.androidx.fragment.ktx)
 //    network
     implementation(libs.okhttp3.okhttp)
     implementation(libs.okhttp3.logging.interceptor)

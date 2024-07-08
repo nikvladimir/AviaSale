@@ -8,13 +8,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.alfadroid.airtickets.R
 
-data class  Item(
+data class Item(
     val imageResId: Int,
     val text: String
 )
 
-class RecyclerViewAdapter(private val items: List<Item>) :
+class RecyclerViewAdapter() :
     RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
+
+    var items: List<Item> = emptyList()
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.item_offer_image)
@@ -36,5 +38,9 @@ class RecyclerViewAdapter(private val items: List<Item>) :
 
     override fun getItemCount(): Int {
         return items.size
+    }
+
+    fun submitList(list: List<Item>) {
+        items = list
     }
 }
