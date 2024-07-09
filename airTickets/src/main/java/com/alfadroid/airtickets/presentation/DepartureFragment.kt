@@ -18,4 +18,19 @@ class DepartureFragment : Fragment() {
         binding = FragmentDepartureBinding.inflate(layoutInflater)
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.ivBackArrow.setOnClickListener {
+            DestinationBottomSheetFragment().show(parentFragmentManager, "BottomSheetFragment")
+        }
+
+
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        DestinationBottomSheetFragment().show(parentFragmentManager, "BottomSheetFragment")
+    }
 }

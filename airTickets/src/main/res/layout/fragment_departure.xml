@@ -27,11 +27,13 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/icon_back_arrow"
+                android:id="@+id/iv_back_arrow"
                 android:layout_width="14dp"
                 android:layout_height="14dp"
                 android:layout_marginStart="16dp"
+                android:clickable="true"
                 android:contentDescription="@string/icon_back_arrow_departure_fragment"
+                android:focusable="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -49,7 +51,7 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/iv_replace_places"
-                app:layout_constraintStart_toEndOf="@+id/icon_back_arrow"
+                app:layout_constraintStart_toEndOf="@+id/iv_back_arrow"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
@@ -72,7 +74,7 @@
                 android:layout_marginEnd="16dp"
                 android:background="@color/grey5"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/icon_back_arrow"
+                app:layout_constraintStart_toEndOf="@id/iv_back_arrow"
                 app:layout_constraintTop_toBottomOf="@id/et_departure" />
 
             <TextView
@@ -87,7 +89,7 @@
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toStartOf="@id/iv_clear_destination"
-                app:layout_constraintStart_toEndOf="@id/icon_back_arrow"
+                app:layout_constraintStart_toEndOf="@id/iv_back_arrow"
                 app:layout_constraintTop_toBottomOf="@+id/dividing_line" />
 
             <ImageView
@@ -104,8 +106,8 @@
     </androidx.cardview.widget.CardView>
 
 
-    <ScrollView
-        android:id="@+id/sv_departure_settings"
+    <HorizontalScrollView
+        android:id="@+id/hsv_departure_settings"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -114,138 +116,51 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_view_input_fields">
 
-    </ScrollView>
 
-    <LinearLayout
-        android:id="@+id/ll_quick_buttons_block"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sv_departure_settings">
-
-        <TextView
-            android:id="@+id/tv_complex_route"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:drawableTop="@drawable/icon_complex_route"
-            android:focusable="true"
-            android:gravity="center_horizontal"
-            android:text="@string/complex_route"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@+id/iv_complex_route"
-            app:layout_constraintStart_toStartOf="@+id/iv_complex_route"
-            app:layout_constraintTop_toBottomOf="@+id/iv_complex_route" />
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" />
-
-        <LinearLayout
-            android:id="@+id/ll_anywhere"
-            android:layout_width="48dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/icon_anywhere" />
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center_horizontal"
-                android:text="@string/anywhere"
-                android:textColor="@color/white"
-                android:textSize="14sp" />
-        </LinearLayout>
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" />
-
-        <LinearLayout
-            android:id="@+id/ll_weekends"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/icon_weekends" />
+                android:background="@android:color/holo_blue_light"
+                android:padding="16dp"
+                android:text="Element 1" />
 
             <TextView
-                android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center_horizontal"
-                android:text="@string/weekends"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="@+id/imageView3"
-                app:layout_constraintStart_toStartOf="@+id/imageView3"
-                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+                android:background="@android:color/holo_green_light"
+                android:padding="16dp"
+                android:text="Element 2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_orange_light"
+                android:padding="16dp"
+                android:text="Element 3" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_red_light"
+                android:padding="16dp"
+                android:text="Element 4" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_purple"
+                android:padding="16dp"
+                android:text="Element 5" />
 
         </LinearLayout>
 
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" />
 
-        <LinearLayout
-            android:id="@+id/ll_hot_tickets"
-            android:layout_width="48dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_hot_tickets" />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center_horizontal"
-                android:text="@string/hot_tickets"
-                android:textColor="@color/white"
-                android:textSize="14sp" />
-
-        </LinearLayout>
-    </LinearLayout>
+    </HorizontalScrollView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_popular_destinations"
@@ -254,11 +169,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="45dp"
         android:layout_marginEnd="16dp"
-        app:cardBackgroundColor="@color/grey2"
+        app:cardBackgroundColor="@color/grey1"
         app:cardCornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ll_quick_buttons_block">
+        app:layout_constraintTop_toBottomOf="@+id/hsv_departure_settings">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -270,6 +185,19 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/straight_rails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="Прямые рельсы"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cl_istanbul"
                     android:layout_width="match_parent"
@@ -278,15 +206,14 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:clickable="true"
-                    android:focusable="true"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
                         android:id="@+id/imageView5"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/image_istanbul"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/icon_circle_red"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -295,10 +222,21 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:text="@string/istanbul"
+                        android:text="Уральские авиалинии"
                         android:textColor="@color/white"
                         android:textSize="16sp"
                         app:layout_constraintStart_toEndOf="@+id/imageView5"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView5_1_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 390 P >"
+                        android:textColor="@color/darkBlue"
+                        android:textSize="16sp"
+                        android:textStyle="italic"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
@@ -306,8 +244,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:text="@string/popular_destination"
-                        android:textColor="@color/grey5"
+                        android:text="07:00  09:10   10:00  11:00  12:00  13:00  12:00      "
+                        android:textColor="@color/white"
                         android:textSize="14sp"
                         app:layout_constraintStart_toEndOf="@+id/imageView5"
                         app:layout_constraintTop_toBottomOf="@+id/textView5_1" />
@@ -319,7 +257,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
-                    android:background="@color/grey5" />
+                    android:background="@color/grey4" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cl_sochi"
@@ -333,9 +271,10 @@
 
                     <ImageView
                         android:id="@+id/imageView6"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/image_sochi"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/icon_circle_blue"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -344,10 +283,21 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:text="@string/sochi"
+                        android:text="Победа"
                         android:textColor="@color/white"
                         android:textSize="16sp"
                         app:layout_constraintStart_toEndOf="@+id/imageView6"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView6_1_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 390 P >"
+                        android:textColor="@color/darkBlue"
+                        android:textSize="16sp"
+                        android:textStyle="italic"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
@@ -355,8 +305,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:text="@string/popular_destination"
-                        android:textColor="@color/grey5"
+                        android:text="08:05  09:55   16:35  18:55"
+                        android:textColor="@color/white"
                         android:textSize="14sp"
                         app:layout_constraintStart_toEndOf="@+id/imageView6"
                         app:layout_constraintTop_toBottomOf="@+id/textView6_1" />
@@ -368,7 +318,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
-                    android:background="@color/grey5" />
+                    android:background="@color/grey4" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cl_phuket"
@@ -382,9 +332,10 @@
 
                     <ImageView
                         android:id="@+id/imageView7"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/image_phuket"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/icon_circle_white"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -393,10 +344,21 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:text="@string/phuket"
+                        android:text="NordStar"
                         android:textColor="@color/white"
                         android:textSize="16sp"
                         app:layout_constraintStart_toEndOf="@+id/imageView7"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView7_1_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 390 P >"
+                        android:textColor="@color/darkBlue"
+                        android:textSize="16sp"
+                        android:textStyle="italic"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
@@ -404,8 +366,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:text="@string/popular_destination"
-                        android:textColor="@color/grey5"
+                        android:text="13:10"
+                        android:textColor="@color/white"
                         android:textSize="14sp"
                         app:layout_constraintStart_toEndOf="@+id/imageView7"
                         app:layout_constraintTop_toBottomOf="@+id/textView7_1" />
@@ -417,9 +379,22 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@color/grey5" />
+                    android:background="@color/grey4" />
+
+                <TextView
+                    android:id="@+id/tv_show_all"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:text="Показать все"
+                    android:textColor="@color/darkBlue"
+                    android:textSize="16sp" />
             </LinearLayout>
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
