@@ -38,6 +38,8 @@
     <string name="view_all_tickets">Посмотреть все билеты</string>
     <string name="destination_place">Место назначения</string>
     <string name="icon_back_arrow_departure_fragment">icon_back_arrow_departure_fragment</string>
+    <string name="icon_bell_departure">icon_bell_departure</string>
+    <string name="subscribe_on_price_departure">Подписка на цену</string>
 
     <!--    quick_buttons-->
     <string name="hot_tickets_fragment">Горячие билеты</string>

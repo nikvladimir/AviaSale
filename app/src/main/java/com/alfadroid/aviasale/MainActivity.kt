@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
-import com.alfadroid.airtickets.presentation.AirTicketsFragment
+import com.alfadroid.airtickets.presentation.HostAirTicketsFragment
 import com.alfadroid.aviasale.databinding.ActivityMainBinding
 import com.alfadroid.hotels.HotelsFragment
 import com.alfadroid.profile.ProfileFragment
@@ -22,13 +22,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportFragmentManager.beginTransaction().replace(
-            binding.navHostFragment.id, AirTicketsFragment()
+            binding.navHostFragment.id, HostAirTicketsFragment()
         ).commitNow()
 
         binding.apply {
             bottomNavigation.setOnItemSelectedListener {
                 when (it.itemId) {
-                    R.id.navigation_airTickets -> loadFragment(AirTicketsFragment())
+                    R.id.navigation_airTickets -> loadFragment(HostAirTicketsFragment())
                     R.id.navigation_hotels -> loadFragment(HotelsFragment())
                     R.id.navigation_shorter -> loadFragment(ShorterFragment())
                     R.id.navigation_subscribers -> loadFragment(SubscribersFragment())

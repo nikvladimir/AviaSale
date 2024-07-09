@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.alfadroid.airtickets.R
+import com.alfadroid.airtickets.presentation.DestinationBottomSheetFragment
 
 
 class WeekendsFragment : Fragment() {
@@ -17,4 +18,9 @@ class WeekendsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_weekends, container, false)
     }
 
+    override fun onDetach() {
+        super.onDetach()
+        val bottomSheet = DestinationBottomSheetFragment()
+        bottomSheet.show(parentFragmentManager, "BottomSheetFragment")
+    }
 }
