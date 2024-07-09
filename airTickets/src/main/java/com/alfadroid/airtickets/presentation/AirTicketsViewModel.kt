@@ -1,6 +1,7 @@
 package com.alfadroid.airtickets.presentation
 
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.alfadroid.airtickets.R
@@ -10,23 +11,24 @@ import kotlinx.coroutines.launch
 
 class AirTicketsViewModel(useCase: AirTicketsUseCase) : ViewModel() {
 
-    val items = listOf(
-        Item(R.drawable.icon_launcher_foreground, "View Model 1"),
-        Item(R.drawable.icon_launcher_foreground, "Item 2"),
-        Item(R.drawable.icon_launcher_foreground, "Item 3"),
-        Item(R.drawable.icon_launcher_foreground, "Item 4"),
-        Item(R.drawable.icon_launcher_foreground, "Item 5")
-    )
     val screenState = MutableStateFlow<AirTicketsScreenState>(AirTicketsScreenState.Loading)
 
     init {
         viewModelScope.launch {
-            useCase.getOffers()
-            screenState.emit(AirTicketsScreenState.Ready(
-                departure = "departure",
-                destination = "destination",
-                offers = items
-            ))
+            val responce = useCase.getOffers().map {
+                Item(
+                    text = it.title,
+                    imageResId = R.drawable.icon_launcher_foreground
+                )
+            }
+            Log.d("CATCAT", "$responce")
+            screenState.emit(
+                AirTicketsScreenState.Ready(
+                    departure = "departure",
+                    destination = "destination",
+                    offers = responce
+                )
+            )
         }
     }
 }
