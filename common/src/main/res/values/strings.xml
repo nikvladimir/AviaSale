@@ -33,6 +33,7 @@
     <string name="hot_tickets">Горячие\nбилеты</string>
     <string name="istanbul">Стамбул</string>
     <string name="sochi">Сочи</string>
+    <string name="search_cheap_flights">Поиск дешевых\nавиабилетов</string>
 
     <!--    fragment_departure-->
     <string name="view_all_tickets">Посмотреть все билеты</string>

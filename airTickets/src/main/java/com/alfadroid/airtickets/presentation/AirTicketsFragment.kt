@@ -83,7 +83,7 @@ class AirTicketsFragment : Fragment() {
         )
         with(binding) {
 //            etDeparture.text = state.departure
-            etDestination.text = state.destination
+//            etDestination.text = state.destination
             airTicketsAdapter.submitList(items)
         }
     }
