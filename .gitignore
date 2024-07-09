@@ -98,3 +98,4 @@ lint/tmp/
 /.idea/assetWizardSettings.xml
 .idea/misc.xml
 .idea/deploymentTargetDropDown.xml
+.idea
