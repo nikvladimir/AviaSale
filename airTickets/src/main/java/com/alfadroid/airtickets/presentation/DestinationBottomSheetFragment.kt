@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.FrameLayout
-import com.alfadroid.airtickets.R
 import com.alfadroid.airtickets.databinding.FragmentDestinationBottomSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -23,9 +22,21 @@ class DestinationBottomSheetFragment : BottomSheetDialogFragment() {
     ): View {
         binding = FragmentDestinationBottomSheetBinding.inflate(layoutInflater)
 
-        binding.clIstanbul.setOnClickListener { binding.etDeparture.text = getString(R.string.istanbul) }
-        binding.clSochi.setOnClickListener { binding.etDeparture.text = getString(R.string.sochi) }
-        binding.clPhuket.setOnClickListener { binding.etDeparture.text = getString(R.string.phuket) }
+        binding.clIstanbul.setOnClickListener {
+            binding.etDestination.text = getString(com.alfadroid.common.R.string.istanbul)
+        }
+        binding.clSochi.setOnClickListener {
+            binding.etDestination.text = getString(com.alfadroid.common.R.string.sochi)
+        }
+        binding.clPhuket.setOnClickListener {
+            binding.etDestination.text = getString(com.alfadroid.common.R.string.phuket)
+        }
+        binding.ivClearDestination.setOnClickListener { binding.etDestination.text = "" }
+//        binding.llComplexRoute.setOnClickListener {
+//            parentFragmentManager.beginTransaction().apply {
+//                replace()
+//            }
+//        }
 
         return binding.root
     }

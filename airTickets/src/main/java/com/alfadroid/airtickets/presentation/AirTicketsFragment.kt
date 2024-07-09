@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -13,11 +12,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.alfadroid.airtickets.R
 import com.alfadroid.airtickets.databinding.FragmentAirTicketsBinding
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AirTicketsFragment : Fragment() {
     private lateinit var binding: FragmentAirTicketsBinding
     private lateinit var offersAdapter: OffersAdapter
-    val viewModel: AirTicketsViewModel by viewModels()
+    val viewModel by viewModel<AirTicketsViewModel>()
     val airTicketsAdapter = RecyclerViewAdapter()
 
 
@@ -34,15 +34,15 @@ class AirTicketsFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.screenState.collect { state ->
-                    when (state) {
-                        AirTicketsScreenState.Loading -> {}
-                        is AirTicketsScreenState.Error -> {}
-                        is AirTicketsScreenState.Ready -> {
-                            render(state)
-                        }
-                    }
-                }
+//                viewModel.screenState.collect { state ->
+//                    when (state) {
+//                        AirTicketsScreenState.Loading -> {}
+//                        is AirTicketsScreenState.Error -> {}
+//                        is AirTicketsScreenState.Ready -> {
+//                            render(state)
+//                        }
+//                    }
+//                }
             }
         }
 

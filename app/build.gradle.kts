@@ -53,6 +53,10 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
+    //    koin
+    implementation(libs.koin.koin.android)
+    implementation (libs.koin.core)
+
     // Tests
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

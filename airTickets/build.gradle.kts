@@ -56,7 +56,8 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
 //    koin
-    implementation(libs.koin.android)
+    implementation(libs.koin.koin.android)
+    implementation (libs.koin.core)
 //    tests
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
