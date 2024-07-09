@@ -1,7 +1,6 @@
 package com.alfadroid.airtickets.presentation
 
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.alfadroid.airtickets.R
@@ -15,22 +14,43 @@ class AirTicketsViewModel(useCase: AirTicketsUseCase) : ViewModel() {
 
     init {
         viewModelScope.launch {
-            val responce = useCase.getOffers().map {
+            val response = useCase.getOffers().map {
                 Item(
-                    text = it.title,
-                    imageResId = R.drawable.icon_launcher_foreground
+                    imageResId = getImageRes(it.id),
+                    title = it.title,
+                    town = it.town,
+                    price = it.price.value.toString() + " ₽"
+
                 )
             }
-            Log.d("CATCAT", "$responce")
             screenState.emit(
                 AirTicketsScreenState.Ready(
                     departure = "departure",
                     destination = "destination",
-                    offers = responce
+                    offers = response
                 )
             )
         }
     }
+
+    private fun getImageRes(id: Int): Int =
+        when (id) {
+            Images.DIE_ANTWOORD.id -> {
+                R.drawable.img_1
+            }
+
+            Images.SOCRAT_LERA.id -> {
+                R.drawable.img_2
+            }
+
+            Images.LAMPABIKT.id -> {
+                R.drawable.img_3
+            }
+
+            else -> {
+                R.drawable.icon_hot_tickets
+            }
+        }
 }
 
 sealed interface AirTicketsScreenState {
@@ -46,5 +66,11 @@ sealed interface AirTicketsScreenState {
         val destination: String,
         val offers: List<Item>,
     ) : AirTicketsScreenState
+}
+
+enum class Images(val id: Int) {
+    DIE_ANTWOORD(id = 1),
+    SOCRAT_LERA(id = 2),
+    LAMPABIKT(id = 3),
 }
 
