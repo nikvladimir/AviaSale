@@ -9,6 +9,9 @@ import android.view.WindowManager
 import android.widget.FrameLayout
 import com.alfadroid.airtickets.R
 import com.alfadroid.airtickets.databinding.FragmentDestinationBottomSheetBinding
+import com.alfadroid.airtickets.presentation.quick_buttons.ComplexRouteFragment
+import com.alfadroid.airtickets.presentation.quick_buttons.HotTicketsFragment
+import com.alfadroid.airtickets.presentation.quick_buttons.WeekendsFragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -23,9 +26,43 @@ class DestinationBottomSheetFragment : BottomSheetDialogFragment() {
     ): View {
         binding = FragmentDestinationBottomSheetBinding.inflate(layoutInflater)
 
-        binding.clIstanbul.setOnClickListener { binding.etDeparture.text = getString(R.string.istanbul) }
-        binding.clSochi.setOnClickListener { binding.etDeparture.text = getString(R.string.sochi) }
-        binding.clPhuket.setOnClickListener { binding.etDeparture.text = getString(R.string.phuket) }
+        binding.clIstanbul.setOnClickListener {
+            binding.etDestination.text = getString(com.alfadroid.common.R.string.istanbul)
+        }
+        binding.clSochi.setOnClickListener {
+            binding.etDestination.text = getString(com.alfadroid.common.R.string.sochi)
+        }
+        binding.clPhuket.setOnClickListener {
+            binding.etDestination.text = getString(com.alfadroid.common.R.string.phuket)
+        }
+
+        binding.ivClearDestination.setOnClickListener { binding.etDestination.text = "" }
+        binding.llAnywhere.setOnClickListener { binding.etDestination.text = "Любой город" }
+
+
+        binding.llComplexRoute.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.hostAirTicketsFragment, ComplexRouteFragment())
+                .addToBackStack(null)
+                .commit()
+            dismiss()
+        }
+
+        binding.llWeekends.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.hostAirTicketsFragment, WeekendsFragment())
+                .addToBackStack(null)
+                .commit()
+            dismiss()
+        }
+
+        binding.llHotTickets.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.hostAirTicketsFragment, HotTicketsFragment())
+                .addToBackStack(null)
+                .commit()
+            dismiss()
+        }
 
         return binding.root
     }

@@ -28,7 +28,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="36dp"
         android:layout_marginRight="16dp"
-        android:background="@drawable/rounded_corner_background"
+        android:background="@drawable/background_rounded_corner"
         app:layout_constraintTop_toBottomOf="@+id/tv_main_header">
 
         <androidx.cardview.widget.CardView
@@ -55,7 +55,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/magnifying_glass_for_searching" />
+                    app:srcCompat="@drawable/icon_magnifying_glass_for_searching" />
 
                 <TextView
                     android:id="@+id/et_departure"
