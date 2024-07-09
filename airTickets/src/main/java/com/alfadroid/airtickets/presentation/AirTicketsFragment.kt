@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alfadroid.airtickets.R
 import com.alfadroid.airtickets.databinding.FragmentAirTicketsBinding
@@ -15,7 +14,7 @@ import com.alfadroid.airtickets.presentation.quick_buttons.ComplexRouteFragment
 class AirTicketsFragment : Fragment() {
     private lateinit var binding: FragmentAirTicketsBinding
     private lateinit var offersAdapter: OffersAdapter
-    val viewModel: AirTicketsViewModel by viewModels()
+//    val viewModel by viewModel<AirTicketsViewModel>()
     val airTicketsAdapter = RecyclerViewAdapter()
 
 
@@ -30,6 +29,8 @@ class AirTicketsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+//        viewLifecycleOwner.lifecycleScope.launch {
+//            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
 //        viewLifecycleOwner.lifecycleScope.launch {
 //            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
 //                viewModel.screenState.collect { state ->

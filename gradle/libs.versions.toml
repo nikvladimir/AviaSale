@@ -22,7 +22,7 @@ kotlinxCoroutinesAndroid = "1.8.0"
 kotlinxCoroutinesCore = "1.8.0"
 
 # koin
-koinAndroid = "3.1.5"
+koinAndroid = "3.5.0"
 
 # tests
 junit = "4.13.2"
@@ -59,7 +59,8 @@ kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutine
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
 
 # koin
-koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroid" }
+koin-koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroid" }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinAndroid" }
 
 # tests
 junit = { group = "junit", name = "junit", version.ref = "junit" }
