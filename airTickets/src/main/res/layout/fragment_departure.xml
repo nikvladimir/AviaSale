@@ -40,7 +40,7 @@
                 app:srcCompat="@drawable/icon_back_arrow" />
 
             <TextView
-                android:id="@+id/et_departure"
+                android:id="@+id/tv_departure"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -50,18 +50,18 @@
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/iv_replace_places"
+                app:layout_constraintEnd_toStartOf="@+id/iv_swap_departure_destination"
                 app:layout_constraintStart_toEndOf="@+id/iv_back_arrow"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/iv_replace_places"
+                android:id="@+id/iv_swap_departure_destination"
                 android:layout_width="12dp"
                 android:layout_height="12dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="22dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/et_departure"
+                app:layout_constraintStart_toEndOf="@+id/tv_departure"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/icon_replace" />
 
@@ -75,10 +75,10 @@
                 android:background="@color/grey5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/iv_back_arrow"
-                app:layout_constraintTop_toBottomOf="@id/et_departure" />
+                app:layout_constraintTop_toBottomOf="@id/tv_departure" />
 
             <TextView
-                android:id="@+id/et_destination"
+                android:id="@+id/tv_destination"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -149,13 +149,6 @@
                 android:background="@android:color/holo_red_light"
                 android:padding="16dp"
                 android:text="Element 4" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:color/holo_purple"
-                android:padding="16dp"
-                android:text="Element 5" />
 
         </LinearLayout>
 

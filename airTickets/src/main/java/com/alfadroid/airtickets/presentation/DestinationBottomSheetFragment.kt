@@ -32,17 +32,19 @@ class DestinationBottomSheetFragment : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.clIstanbul.setOnClickListener {
-            binding.etDestination.text = getString(com.alfadroid.common.R.string.istanbul)
+            binding.tvDestination.text = getString(com.alfadroid.common.R.string.istanbul)
         }
         binding.clSochi.setOnClickListener {
-            binding.etDestination.text = getString(com.alfadroid.common.R.string.sochi)
+            binding.tvDestination.text = getString(com.alfadroid.common.R.string.sochi)
         }
         binding.clPhuket.setOnClickListener {
-            binding.etDestination.text = getString(com.alfadroid.common.R.string.phuket)
+            binding.tvDestination.text = getString(com.alfadroid.common.R.string.phuket)
         }
 
-        binding.ivClearDestination.setOnClickListener { binding.etDestination.text = "" }
-        binding.llAnywhere.setOnClickListener { binding.etDestination.text = "Любой город" }
+        binding.ivClearDestination.setOnClickListener { binding.tvDestination.text = "" }
+        binding.llAnywhere.setOnClickListener {
+            binding.tvDestination.text = getString(com.alfadroid.common.R.string.any_city)
+        }
 
         binding.llComplexRoute.setOnClickListener(fragmentTransaction(ComplexRouteFragment()))
         binding.llWeekends.setOnClickListener(fragmentTransaction(WeekendsFragment()))

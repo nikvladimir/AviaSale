@@ -87,7 +87,7 @@
                 app:srcCompat="@drawable/icon_magnifying_glass_for_bottom_sheet" />
 
             <TextView
-                android:id="@+id/et_destination"
+                android:id="@+id/tv_destination"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"

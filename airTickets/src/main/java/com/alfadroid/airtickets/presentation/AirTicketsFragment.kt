@@ -62,12 +62,12 @@ class AirTicketsFragment : Fragment() {
                     airTicketsAdapter.submitList(emptyList())
                 }
 
-                binding.etDestination.setOnClickListener {
+                binding.tvDestination.setOnClickListener {
                     val bottomSheet = DestinationBottomSheetFragment()
                     bottomSheet.show(parentFragmentManager, "BottomSheetFragment")
                 }
 
-                binding.etDeparture.filters = arrayOf(CyrillicInputFilter())
+                binding.tvDeparture.filters = arrayOf(CyrillicInputFilter())
             }
         }
     }

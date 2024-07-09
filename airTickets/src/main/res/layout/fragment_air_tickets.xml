@@ -58,7 +58,7 @@
                     app:srcCompat="@drawable/icon_magnifying_glass_for_searching" />
 
                 <EditText
-                    android:id="@+id/et_departure"
+                    android:id="@+id/tv_departure"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="17dp"
@@ -82,12 +82,12 @@
                     android:layout_height="1dp"
                     android:layout_marginTop="8dp"
                     android:background="@color/grey5"
-                    app:layout_constraintEnd_toEndOf="@id/et_departure"
-                    app:layout_constraintStart_toStartOf="@id/et_departure"
-                    app:layout_constraintTop_toBottomOf="@id/et_departure" />
+                    app:layout_constraintEnd_toEndOf="@id/tv_departure"
+                    app:layout_constraintStart_toStartOf="@id/tv_departure"
+                    app:layout_constraintTop_toBottomOf="@id/tv_departure" />
 
                 <EditText
-                    android:id="@+id/et_destination"
+                    android:id="@+id/tv_destination"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"

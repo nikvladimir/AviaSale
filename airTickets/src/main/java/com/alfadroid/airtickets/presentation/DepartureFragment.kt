@@ -23,9 +23,16 @@ class DepartureFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.ivBackArrow.setOnClickListener {
-            DestinationBottomSheetFragment().show(parentFragmentManager, "BottomSheetFragment")
+            requireActivity().onBackPressedDispatcher.onBackPressed()
         }
 
+        binding.ivSwapDepartureDestination.setOnClickListener {
+            val tmp_departure_text = binding.tvDeparture.text
+            binding.tvDeparture.text = binding.tvDestination.text
+            binding.tvDestination.text = tmp_departure_text
+        }
+
+        binding.ivClearDestination.setOnClickListener { binding.tvDestination.text = "" }
 
     }
 

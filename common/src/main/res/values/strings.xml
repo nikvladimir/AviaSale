@@ -37,6 +37,7 @@
 
     <!--    fragment_destination_bottom_sheet-->
     <string name="iv_clear_destination">iv_clear_destination</string>
+    <string name="any_city">Любой город</string>
 
     <!--    fragment_departure-->
     <string name="view_all_tickets">Посмотреть все билеты</string>
