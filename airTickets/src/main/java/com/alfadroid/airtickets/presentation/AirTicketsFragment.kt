@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alfadroid.airtickets.R
 import com.alfadroid.airtickets.databinding.FragmentAirTicketsBinding
+import com.alfadroid.airtickets.domain.CyrillicInputFilter
 import com.alfadroid.airtickets.presentation.quick_buttons.ComplexRouteFragment
 
 class AirTicketsFragment : Fragment() {
@@ -67,6 +68,8 @@ class AirTicketsFragment : Fragment() {
             val bottomSheet = DestinationBottomSheetFragment()
             bottomSheet.show(parentFragmentManager, "BottomSheetFragment")
         }
+
+        binding.etDeparture.filters = arrayOf(CyrillicInputFilter())
     }
 
     private fun render(state: AirTicketsScreenState.Ready) {
@@ -79,7 +82,7 @@ class AirTicketsFragment : Fragment() {
             Item(R.drawable.icon_launcher_foreground, "Item 5")
         )
         with(binding) {
-            etDeparture.text = state.departure
+//            etDeparture.text = state.departure
             etDestination.text = state.destination
             airTicketsAdapter.submitList(items)
         }

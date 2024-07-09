@@ -13,7 +13,7 @@
         android:layout_height="52dp"
         android:layout_marginTop="28dp"
         android:gravity="center"
-        android:text="Поиск дешевых\nавиабилетов"
+        android:text="@string/search_cheap_flights"
         android:textColor="@color/grey7"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -57,14 +57,15 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/icon_magnifying_glass_for_searching" />
 
-                <TextView
+                <EditText
                     android:id="@+id/et_departure"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="17dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
-                    android:text="@string/search_departure_city_minsk"
+                    android:hint="@string/search_departure_city_minsk"
+                    android:autofillHints="@string/search_departure_city_minsk"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"
