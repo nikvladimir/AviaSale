@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.FrameLayout
+import androidx.fragment.app.Fragment
 import com.alfadroid.airtickets.R
 import com.alfadroid.airtickets.databinding.FragmentDestinationBottomSheetBinding
 import com.alfadroid.airtickets.presentation.quick_buttons.ComplexRouteFragment
@@ -21,10 +22,14 @@ class DestinationBottomSheetFragment : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentDestinationBottomSheetBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentDestinationBottomSheetBinding.inflate(layoutInflater)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         binding.clIstanbul.setOnClickListener {
             binding.etDestination.text = getString(com.alfadroid.common.R.string.istanbul)
@@ -39,32 +44,11 @@ class DestinationBottomSheetFragment : BottomSheetDialogFragment() {
         binding.ivClearDestination.setOnClickListener { binding.etDestination.text = "" }
         binding.llAnywhere.setOnClickListener { binding.etDestination.text = "Любой город" }
 
+        binding.llComplexRoute.setOnClickListener(fragmentTransaction(ComplexRouteFragment()))
+        binding.llWeekends.setOnClickListener(fragmentTransaction(WeekendsFragment()))
+        binding.llHotTickets.setOnClickListener(fragmentTransaction(HotTicketsFragment()))
+        binding.tvDeparture.setOnClickListener(fragmentTransaction(DepartureFragment()))
 
-        binding.llComplexRoute.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.hostAirTicketsFragment, ComplexRouteFragment())
-                .addToBackStack(null)
-                .commit()
-            dismiss()
-        }
-
-        binding.llWeekends.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.hostAirTicketsFragment, WeekendsFragment())
-                .addToBackStack(null)
-                .commit()
-            dismiss()
-        }
-
-        binding.llHotTickets.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.hostAirTicketsFragment, HotTicketsFragment())
-                .addToBackStack(null)
-                .commit()
-            dismiss()
-        }
-
-        return binding.root
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -90,5 +74,16 @@ class DestinationBottomSheetFragment : BottomSheetDialogFragment() {
         val layoutParams = bottomSheet.layoutParams
         layoutParams.height = WindowManager.LayoutParams.MATCH_PARENT
         bottomSheet.layoutParams = layoutParams
+    }
+
+    private fun fragmentTransaction(fragment: Fragment): View.OnClickListener {
+        return View.OnClickListener {
+            parentFragmentManager
+                .beginTransaction()
+                .replace(R.id.hostAirTicketsFragment, fragment)
+                .addToBackStack(null)
+                .commit()
+            dismiss()
+        }
     }
 }

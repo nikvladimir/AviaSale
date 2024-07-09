@@ -49,12 +49,14 @@
                 app:srcCompat="@drawable/icon_plain_bottom_sheet" />
 
             <TextView
-                android:id="@+id/et_departure"
+                android:id="@+id/tv_departure"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:text="@string/search_departure_city_minsk"
                 android:textColor="@color/white"
                 android:textSize="16sp"
@@ -69,9 +71,9 @@
                 android:layout_height="1dp"
                 android:layout_marginTop="11dp"
                 android:background="@color/grey5"
-                app:layout_constraintEnd_toEndOf="@id/et_departure"
+                app:layout_constraintEnd_toEndOf="@id/tv_departure"
                 app:layout_constraintStart_toStartOf="@id/icon_plain_bottom_sheet"
-                app:layout_constraintTop_toBottomOf="@id/et_departure" />
+                app:layout_constraintTop_toBottomOf="@id/tv_departure" />
 
             <ImageView
                 android:id="@+id/image_magnifying_glass_for_bottom_sheet"
@@ -107,6 +109,7 @@
                 android:layout_height="24dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
+                android:contentDescription="@string/iv_clear_destination"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/dividing_line"
                 app:srcCompat="@drawable/icon_cross" />

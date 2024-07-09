@@ -35,6 +35,9 @@
     <string name="sochi">Сочи</string>
     <string name="search_cheap_flights">Поиск дешевых\nавиабилетов</string>
 
+    <!--    fragment_destination_bottom_sheet-->
+    <string name="iv_clear_destination">iv_clear_destination</string>
+
     <!--    fragment_departure-->
     <string name="view_all_tickets">Посмотреть все билеты</string>
     <string name="destination_place">Место назначения</string>
