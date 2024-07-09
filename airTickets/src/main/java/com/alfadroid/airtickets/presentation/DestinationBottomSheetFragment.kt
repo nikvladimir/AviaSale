@@ -10,9 +10,9 @@ import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
 import com.alfadroid.airtickets.R
 import com.alfadroid.airtickets.databinding.FragmentDestinationBottomSheetBinding
-import com.alfadroid.airtickets.presentation.quick_buttons.ComplexRouteFragment
-import com.alfadroid.airtickets.presentation.quick_buttons.HotTicketsFragment
-import com.alfadroid.airtickets.presentation.quick_buttons.WeekendsFragment
+import com.alfadroid.airtickets.presentation.quickbuttons.ComplexRouteFragment
+import com.alfadroid.airtickets.presentation.quickbuttons.HotTicketsFragment
+import com.alfadroid.airtickets.presentation.quickbuttons.WeekendsFragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment

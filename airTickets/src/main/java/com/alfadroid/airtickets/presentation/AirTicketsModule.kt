@@ -11,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 
 object AirTicketsModule {
-    val BASEURL = "https://drive.usercontent.google.com/u/0/"
+    private const val BASEURL = "https://drive.usercontent.google.com/u/0/"
 
     val airTicketsModule = module {
         single { provideRetrofit() }

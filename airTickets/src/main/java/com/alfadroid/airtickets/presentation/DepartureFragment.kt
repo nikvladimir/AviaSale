@@ -27,9 +27,9 @@ class DepartureFragment : Fragment() {
         }
 
         binding.ivSwapDepartureDestination.setOnClickListener {
-            val tmp_departure_text = binding.tvDeparture.text
+            val tmpDepartureText = binding.tvDeparture.text
             binding.tvDeparture.text = binding.tvDestination.text
-            binding.tvDestination.text = tmp_departure_text
+            binding.tvDestination.text = tmpDepartureText
         }
 
         binding.ivClearDestination.setOnClickListener { binding.tvDestination.text = "" }

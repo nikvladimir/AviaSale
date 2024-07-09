@@ -5,7 +5,7 @@ import retrofit2.http.GET
 import retrofit2.http.Url
 
 interface OffersApi {
-    @GET()
+    @GET
     suspend fun downloadFile(
         @Url url: String
     ): Offers

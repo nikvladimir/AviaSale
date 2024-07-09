@@ -12,10 +12,10 @@ data class Item(
     val price: String,
 )
 
-class RecyclerViewAdapter() :
-    RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
+class AirTicketsAdapter :
+    RecyclerView.Adapter<AirTicketsAdapter.ViewHolder>() {
 
-    var items: List<Item> = emptyList()
+    private var items: List<Item> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(

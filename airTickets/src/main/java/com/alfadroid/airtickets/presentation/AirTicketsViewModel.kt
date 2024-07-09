@@ -4,6 +4,7 @@ package com.alfadroid.airtickets.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.alfadroid.airtickets.R
+import com.alfadroid.common.R as RCommon
 import com.alfadroid.airtickets.domain.usecase.AirTicketsUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
@@ -36,19 +37,19 @@ class AirTicketsViewModel(useCase: AirTicketsUseCase) : ViewModel() {
     private fun getImageRes(id: Int): Int =
         when (id) {
             Images.DIE_ANTWOORD.id -> {
-                R.drawable.img_1
+                R.drawable.image_1
             }
 
             Images.SOCRAT_LERA.id -> {
-                R.drawable.img_2
+                R.drawable.image_2
             }
 
             Images.LAMPABIKT.id -> {
-                R.drawable.img_3
+                R.drawable.image_3
             }
 
             else -> {
-                R.drawable.icon_hot_tickets
+                RCommon.drawable.icon_hot_tickets
             }
         }
 }

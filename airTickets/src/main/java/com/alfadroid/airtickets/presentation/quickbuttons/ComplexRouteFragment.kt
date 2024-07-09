@@ -1,4 +1,4 @@
-package com.alfadroid.airtickets.presentation.quick_buttons
+package com.alfadroid.airtickets.presentation.quickbuttons
 
 import android.os.Bundle
 import android.view.LayoutInflater

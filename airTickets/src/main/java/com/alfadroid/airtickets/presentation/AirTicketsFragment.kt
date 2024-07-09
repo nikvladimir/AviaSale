@@ -12,15 +12,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.alfadroid.airtickets.R
 import com.alfadroid.airtickets.databinding.FragmentAirTicketsBinding
 import com.alfadroid.airtickets.domain.CyrillicInputFilter
-import com.alfadroid.airtickets.presentation.quick_buttons.ComplexRouteFragment
+import com.alfadroid.airtickets.presentation.quickbuttons.ComplexRouteFragment
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AirTicketsFragment : Fragment() {
     private lateinit var binding: FragmentAirTicketsBinding
-    private lateinit var offersAdapter: OffersAdapter
-    val viewModel by viewModel<AirTicketsViewModel>()
-    val airTicketsAdapter = RecyclerViewAdapter()
+    private val viewModel by viewModel<AirTicketsViewModel>()
+    private val airTicketsAdapter = AirTicketsAdapter()
 
 
     override fun onCreateView(
