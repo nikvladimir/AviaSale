@@ -47,6 +47,8 @@
     <string name="subscribe_on_price_departure">Подписка на цену</string>
     <string name="iv_union_departure">iv_union_departure</string>
     <string name="iv_human_departure">iv_human_departure</string>
+    <string name="tv_default_date_departure">24 фев</string>
+    <string name="tv_default_day_departure">, сб</string>
 
     <!-- fragment_departure list of months-->
     <string name="january">янв</string>

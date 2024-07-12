@@ -29,6 +29,9 @@ class DepartureFragment : Fragment() {
         binding.llDepartureDate.setOnClickListener {
             showDatePickedDialog(year, month, day_month)
         }
+        binding.llReturnDate.setOnClickListener {
+            showDatePickedDialog(year, month, day_month, direction = "back")
+        }
 
         return binding.root
     }
@@ -56,10 +59,14 @@ class DepartureFragment : Fragment() {
         DestinationBottomSheetFragment().show(parentFragmentManager, "BottomSheetFragment")
     }
 
-    private fun showDatePickedDialog(year: Int, month: Int, dayMonth: Int) {
+    private fun showDatePickedDialog(
+        year: Int, month: Int, dayMonth: Int, direction: String = "forth"
+    ) {
         val datePickerDialog = DatePickerDialog(
             requireContext(), { _, selectedYear, selectedMonth, selectedDay ->
-                updateDateDayInViews(selectedYear, selectedMonth, selectedDay)
+                if (direction == "forth") {
+                    updateDateDayInViews(selectedYear, selectedMonth, selectedDay)
+                }
             }, year, month, dayMonth
         )
         datePickerDialog.show()
