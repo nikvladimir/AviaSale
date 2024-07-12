@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.alfadroid.airtickets.R
 import com.alfadroid.airtickets.databinding.FragmentDestinationBottomSheetBinding
 import com.alfadroid.airtickets.presentation.quickbuttons.ComplexRouteFragment
@@ -20,13 +22,14 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class DestinationBottomSheetFragment : BottomSheetDialogFragment() {
 
-    private lateinit var binding: FragmentDestinationBottomSheetBinding
+    private val binding: FragmentDestinationBottomSheetBinding by viewBinding(
+        FragmentDestinationBottomSheetBinding::bind
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        binding = FragmentDestinationBottomSheetBinding.inflate(layoutInflater)
-        return binding.root
+        return FragmentDestinationBottomSheetBinding.inflate(layoutInflater).root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,10 +50,10 @@ class DestinationBottomSheetFragment : BottomSheetDialogFragment() {
             binding.tvDestination.text = getString(com.alfadroid.common.R.string.any_city)
         }
 
-        binding.llComplexRoute.setOnClickListener(fragmentTransaction(ComplexRouteFragment()))
-        binding.llWeekends.setOnClickListener(fragmentTransaction(WeekendsFragment()))
-        binding.llHotTickets.setOnClickListener(fragmentTransaction(HotTicketsFragment()))
-        binding.tvDeparture.setOnClickListener(fragmentTransaction(DepartureFragment()))
+        binding.llComplexRoute.setOnClickListener(fragmentTransaction(ComplexRouteFragment.newInstance()))
+        binding.llWeekends.setOnClickListener(fragmentTransaction(WeekendsFragment.newInstance()))
+        binding.llHotTickets.setOnClickListener(fragmentTransaction(HotTicketsFragment.newInstance()))
+        binding.tvDeparture.setOnClickListener(fragmentTransaction(DepartureFragment.newInstance()))
 
     }
 
@@ -81,11 +84,9 @@ class DestinationBottomSheetFragment : BottomSheetDialogFragment() {
 
     private fun fragmentTransaction(fragment: Fragment): View.OnClickListener {
         return View.OnClickListener {
-            parentFragmentManager
-                .beginTransaction()
-                .replace(R.id.hostAirTicketsFragment, fragment)
-                .addToBackStack(null)
-                .commit()
+            childFragmentManager.commit {
+                replace(R.id.hostAirTicketsFragment, fragment).addToBackStack(null)
+            }
             dismiss()
         }
     }

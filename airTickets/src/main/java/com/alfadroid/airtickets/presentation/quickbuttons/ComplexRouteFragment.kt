@@ -5,18 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.alfadroid.airtickets.databinding.FragmentComplexRouteBinding
 import com.alfadroid.destination.presentation.DestinationBottomSheetFragment
 
 class ComplexRouteFragment : Fragment() {
-    private lateinit var binding: FragmentComplexRouteBinding
+    private val binding: FragmentComplexRouteBinding by viewBinding(FragmentComplexRouteBinding::bind)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentComplexRouteBinding.inflate(layoutInflater)
-        return binding.root
+        return FragmentComplexRouteBinding.inflate(layoutInflater).root
     }
 
     override fun onDetach() {
@@ -25,4 +25,7 @@ class ComplexRouteFragment : Fragment() {
         bottomSheet.show(parentFragmentManager, "BottomSheetFragment")
     }
 
+    companion object {
+        fun newInstance(): ComplexRouteFragment = ComplexRouteFragment()
+    }
 }

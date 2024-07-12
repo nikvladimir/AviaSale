@@ -6,18 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.alfadroid.airtickets.databinding.FragmentDepartureBinding
 import com.alfadroid.destination.presentation.DestinationBottomSheetFragment
 import java.util.Calendar
 
 class DepartureFragment : Fragment() {
-
-    private lateinit var binding: FragmentDepartureBinding
+    private val binding: FragmentDepartureBinding by viewBinding(FragmentDepartureBinding::bind)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        binding = FragmentDepartureBinding.inflate(layoutInflater)
 
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
@@ -33,7 +32,7 @@ class DepartureFragment : Fragment() {
             showDatePickedDialog(year, month, day_month, direction = "back")
         }
 
-        return binding.root
+        return FragmentDepartureBinding.inflate(layoutInflater).root
     }
 
 
@@ -108,5 +107,9 @@ class DepartureFragment : Fragment() {
             Calendar.SATURDAY -> getString(com.alfadroid.common.R.string.sunday)
             else -> ""
         }
+    }
+
+    companion object {
+        fun newInstance(): DepartureFragment = DepartureFragment()
     }
 }

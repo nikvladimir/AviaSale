@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.alfadroid.airtickets.R
 import com.alfadroid.airtickets.databinding.FragmentAirTicketsBinding
 import com.alfadroid.airtickets.domain.CyrillicInputFilter
@@ -18,7 +20,7 @@ import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AirTicketsFragment : Fragment() {
-    private lateinit var binding: FragmentAirTicketsBinding
+    private val binding: FragmentAirTicketsBinding by viewBinding(FragmentAirTicketsBinding::bind)
     private val viewModel by viewModel<AirTicketsViewModel>()
     private val airTicketsAdapter = AirTicketsAdapter()
 
@@ -27,8 +29,7 @@ class AirTicketsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentAirTicketsBinding.inflate(layoutInflater)
-        return binding.root
+        return FragmentAirTicketsBinding.inflate(layoutInflater).root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,16 +44,19 @@ class AirTicketsFragment : Fragment() {
                             when (state) {
                                 AirTicketsScreenState.Loading -> {}
                                 is AirTicketsScreenState.Error -> {}
-                                is AirTicketsScreenState.Ready -> { render(state) }
+                                is AirTicketsScreenState.Ready -> {
+                                    render(state)
+                                }
                             }
                         }
                     }
                 }
 
                 binding.tvMusicHeader.setOnClickListener {
-                    parentFragmentManager.beginTransaction().apply {
-                        replace(R.id.hostAirTicketsFragment, ComplexRouteFragment())
-                    }.addToBackStack(null).commit()
+                    childFragmentManager.commit {
+                        replace(R.id.hostAirTicketsFragment, ComplexRouteFragment.newInstance())
+                            .addToBackStack(null)
+                    }
                 }
 
                 binding.recyclerViewOffersFr.apply {
@@ -64,7 +68,7 @@ class AirTicketsFragment : Fragment() {
 
                 binding.tvDestination.setOnClickListener {
                     val bottomSheet = DestinationBottomSheetFragment()
-                    bottomSheet.show(parentFragmentManager, "BottomSheetFragment")
+                    bottomSheet.show(childFragmentManager, "BottomSheetFragment")
                 }
 
                 binding.tvDeparture.filters = arrayOf(CyrillicInputFilter())
@@ -77,5 +81,9 @@ class AirTicketsFragment : Fragment() {
             airTicketsAdapter.submitList(state.offers)
             airTicketsAdapter.notifyDataSetChanged()
         }
+    }
+
+    companion object {
+        fun newInstance(): AirTicketsFragment = AirTicketsFragment()
     }
 }

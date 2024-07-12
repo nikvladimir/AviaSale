@@ -52,11 +52,11 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-
-    //    koin
+    // koin
     implementation(libs.koin.koin.android)
     implementation (libs.koin.core)
-
+    // binding
+    implementation(libs.viewbindingpropertydelegate.noreflection)
     // Tests
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

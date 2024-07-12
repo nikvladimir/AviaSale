@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import com.alfadroid.airtickets.presentation.HostAirTicketsFragment
 import com.alfadroid.aviasale.databinding.ActivityMainBinding
 import com.alfadroid.hotels.HotelsFragment
@@ -21,18 +22,20 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-        supportFragmentManager.beginTransaction().replace(
-            binding.navHostFragment.id, HostAirTicketsFragment()
-        ).commitNow()
+        if (savedInstanceState == null) {
+            supportFragmentManager.commit {
+                replace(R.id.nav_host_fragment, HostAirTicketsFragment.newInstance())
+            }
+        }
 
         binding.apply {
             bottomNavigation.setOnItemSelectedListener {
                 when (it.itemId) {
-                    R.id.navigation_airTickets -> loadFragment(HostAirTicketsFragment())
-                    R.id.navigation_hotels -> loadFragment(HotelsFragment())
-                    R.id.navigation_shorter -> loadFragment(ShorterFragment())
-                    R.id.navigation_subscribers -> loadFragment(SubscribersFragment())
-                    R.id.navigation_profile -> loadFragment(ProfileFragment())
+                    R.id.navigation_airTickets -> loadFragment(HostAirTicketsFragment.newInstance())
+                    R.id.navigation_hotels -> loadFragment(HotelsFragment.newInstance())
+                    R.id.navigation_shorter -> loadFragment(ShorterFragment.newInstance())
+                    R.id.navigation_subscribers -> loadFragment(SubscribersFragment.newInstance())
+                    R.id.navigation_profile -> loadFragment(ProfileFragment.newInstance())
                 }
                 true
             }
@@ -47,8 +50,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment, fragment)
-            .commit()
+        supportFragmentManager.commit {
+            replace(R.id.nav_host_fragment, fragment)
+        }
     }
 }
