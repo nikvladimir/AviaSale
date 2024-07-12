@@ -45,6 +45,31 @@
     <string name="icon_back_arrow_departure_fragment">icon_back_arrow_departure_fragment</string>
     <string name="icon_bell_departure">icon_bell_departure</string>
     <string name="subscribe_on_price_departure">Подписка на цену</string>
+    <string name="iv_union_departure">iv_union_departure</string>
+    <string name="iv_human_departure">iv_human_departure</string>
+
+    <!-- fragment_departure list of months-->
+    <string name="january">янв</string>
+    <string name="february">фев</string>
+    <string name="march">март</string>
+    <string name="april">апр</string>
+    <string name="may">май</string>
+    <string name="june">июнь</string>
+    <string name="july">июль</string>
+    <string name="august">авг</string>
+    <string name="september">сент</string>
+    <string name="october">окт</string>
+    <string name="november">нояб</string>
+    <string name="december">дек</string>
+
+    <!-- fragment_departure list of days of the week-->
+    <string name="monday">пн</string>
+    <string name="tuesday">вт</string>
+    <string name="wednesday">ср</string>
+    <string name="thursday">чт</string>
+    <string name="friday">пт</string>
+    <string name="saturday">сб</string>
+    <string name="sunday">вс</string>
 
     <!--    quick_buttons-->
     <string name="hot_tickets_fragment">Горячие билеты</string>
