@@ -50,29 +50,6 @@
     <string name="tv_default_date_departure">24 фев</string>
     <string name="tv_default_day_departure">, сб</string>
 
-    <!-- fragment_departure list of months-->
-    <string name="january">янв</string>
-    <string name="february">фев</string>
-    <string name="march">март</string>
-    <string name="april">апр</string>
-    <string name="may">май</string>
-    <string name="june">июнь</string>
-    <string name="july">июль</string>
-    <string name="august">авг</string>
-    <string name="september">сент</string>
-    <string name="october">окт</string>
-    <string name="november">нояб</string>
-    <string name="december">дек</string>
-
-    <!-- fragment_departure list of days of the week-->
-    <string name="monday">пн</string>
-    <string name="tuesday">вт</string>
-    <string name="wednesday">ср</string>
-    <string name="thursday">чт</string>
-    <string name="friday">пт</string>
-    <string name="saturday">сб</string>
-    <string name="sunday">вс</string>
-
     <!--    quick_buttons-->
     <string name="hot_tickets_fragment">Горячие билеты</string>
     <string name="complex_route">Сложный\nмаршрут</string>

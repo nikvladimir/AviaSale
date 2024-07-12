@@ -57,7 +57,9 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
 //    koin
     implementation(libs.koin.koin.android)
-    implementation (libs.koin.core)
+    implementation(libs.koin.core)
+//    binding
+    implementation(libs.viewbindingpropertydelegate.noreflection)
 //    tests
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

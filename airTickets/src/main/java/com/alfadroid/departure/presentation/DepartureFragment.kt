@@ -6,10 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.alfadroid.airtickets.R
 import com.alfadroid.airtickets.databinding.FragmentDepartureBinding
 import com.alfadroid.destination.presentation.DestinationBottomSheetFragment
-import java.util.Calendar
+import com.alfadroid.viewAllTickets.presentation.ViewAllTicketsFragment
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class DepartureFragment : Fragment() {
     private val binding: FragmentDepartureBinding by viewBinding(FragmentDepartureBinding::bind)
@@ -17,21 +21,10 @@ class DepartureFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-
-        val calendar = Calendar.getInstance()
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH)
-        val day_month = calendar.get(Calendar.DAY_OF_MONTH)
-
-        updateDateDayInViews(year, month, day_month)
-
-        binding.llDepartureDate.setOnClickListener {
-            showDatePickedDialog(year, month, day_month)
-        }
-        binding.llReturnDate.setOnClickListener {
-            showDatePickedDialog(year, month, day_month, direction = "back")
-        }
-
+        val date = LocalDate.now()
+        updateDateDayInViews(date)
+        binding.llDepartureDate.setOnClickListener { showDatePickedDialog(date, "back") }
+        binding.llReturnDate.setOnClickListener { showDatePickedDialog(date, direction = "back") }
         return FragmentDepartureBinding.inflate(layoutInflater).root
     }
 
@@ -51,6 +44,12 @@ class DepartureFragment : Fragment() {
 
         binding.ivClearDestination.setOnClickListener { binding.tvDestination.text = "" }
 
+        binding.btnShowAllTickets.setOnClickListener {
+            parentFragmentManager.commit {
+                replace(R.id.hostAirTicketsFragment, ViewAllTicketsFragment.newInstance())
+                    .addToBackStack(null).commit()
+            }
+        }
     }
 
     override fun onDetach() {
@@ -58,55 +57,22 @@ class DepartureFragment : Fragment() {
         DestinationBottomSheetFragment().show(parentFragmentManager, "BottomSheetFragment")
     }
 
-    private fun showDatePickedDialog(
-        year: Int, month: Int, dayMonth: Int, direction: String = "forth"
-    ) {
+    private fun showDatePickedDialog(date: LocalDate, direction: String) {
         val datePickerDialog = DatePickerDialog(
             requireContext(), { _, selectedYear, selectedMonth, selectedDay ->
                 if (direction == "forth") {
-                    updateDateDayInViews(selectedYear, selectedMonth, selectedDay)
+                    updateDateDayInViews(LocalDate.of(selectedYear, selectedMonth + 1, selectedDay))
                 }
-            }, year, month, dayMonth
+            }, date.year, date.monthValue, date.dayOfMonth
         )
         datePickerDialog.show()
     }
 
-    private fun updateDateDayInViews(year: Int = 0, month: Int = 0, day: Int = 0) {
-        binding.tvDepartureDate.text = String.format("%02d %s", day, getMonthString(month + 1))
-        binding.tvDepartureDay.text = String.format(", %s", getDayOfWeekString(year, month, day))
-    }
-
-    private fun getMonthString(month: Int): String {
-        return when (month) {
-            1 -> getString(com.alfadroid.common.R.string.january)
-            2 -> getString(com.alfadroid.common.R.string.february)
-            3 -> getString(com.alfadroid.common.R.string.march)
-            4 -> getString(com.alfadroid.common.R.string.april)
-            5 -> getString(com.alfadroid.common.R.string.may)
-            6 -> getString(com.alfadroid.common.R.string.june)
-            7 -> getString(com.alfadroid.common.R.string.july)
-            8 -> getString(com.alfadroid.common.R.string.august)
-            9 -> getString(com.alfadroid.common.R.string.september)
-            10 -> getString(com.alfadroid.common.R.string.october)
-            11 -> getString(com.alfadroid.common.R.string.november)
-            12 -> getString(com.alfadroid.common.R.string.december)
-            else -> ""
-        }
-    }
-
-    private fun getDayOfWeekString(year: Int, month: Int, day: Int): String {
-        val calendar = Calendar.getInstance()
-        calendar.set(year, month, day)
-        return when (calendar.get(Calendar.DAY_OF_WEEK)) {
-            Calendar.MONDAY -> getString(com.alfadroid.common.R.string.monday)
-            Calendar.SUNDAY -> getString(com.alfadroid.common.R.string.tuesday)
-            Calendar.TUESDAY -> getString(com.alfadroid.common.R.string.wednesday)
-            Calendar.WEDNESDAY -> getString(com.alfadroid.common.R.string.thursday)
-            Calendar.THURSDAY -> getString(com.alfadroid.common.R.string.friday)
-            Calendar.FRIDAY -> getString(com.alfadroid.common.R.string.saturday)
-            Calendar.SATURDAY -> getString(com.alfadroid.common.R.string.sunday)
-            else -> ""
-        }
+    private fun updateDateDayInViews(date: LocalDate) {
+        val datePattern = DateTimeFormatter.ofPattern("dd MMMM")
+        val dayOfWeekPattern = DateTimeFormatter.ofPattern("EE")
+        binding.tvDepartureDate.text = datePattern.format(date)
+        binding.tvDepartureDay.text = dayOfWeekPattern.format(date)
     }
 
     companion object {
