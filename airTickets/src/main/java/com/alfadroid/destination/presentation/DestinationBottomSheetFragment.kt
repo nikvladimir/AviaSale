@@ -1,4 +1,4 @@
-package com.alfadroid.airtickets.presentation
+package com.alfadroid.destination.presentation
 
 import android.app.Dialog
 import android.os.Bundle
@@ -13,6 +13,7 @@ import com.alfadroid.airtickets.databinding.FragmentDestinationBottomSheetBindin
 import com.alfadroid.airtickets.presentation.quickbuttons.ComplexRouteFragment
 import com.alfadroid.airtickets.presentation.quickbuttons.HotTicketsFragment
 import com.alfadroid.airtickets.presentation.quickbuttons.WeekendsFragment
+import com.alfadroid.departure.presentation.DepartureFragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment

@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.alfadroid.airtickets.R
-import com.alfadroid.airtickets.presentation.DestinationBottomSheetFragment
+import com.alfadroid.destination.presentation.DestinationBottomSheetFragment
 
 
 class WeekendsFragment : Fragment() {

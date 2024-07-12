@@ -4,6 +4,7 @@ import com.alfadroid.airtickets.data.repository.AirTicketsRepositoryImpl
 import com.alfadroid.airtickets.data.retrofit.OffersApi
 import com.alfadroid.airtickets.domain.repository.AirTicketsRepository
 import com.alfadroid.airtickets.domain.usecase.AirTicketsUseCase
+import com.example.common.Constants
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -11,7 +12,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 
 object AirTicketsModule {
-    private const val BASEURL = "https://drive.usercontent.google.com/u/0/"
 
     val airTicketsModule = module {
         single { provideRetrofit() }
@@ -23,7 +23,7 @@ object AirTicketsModule {
 
     private fun provideRetrofit() =
         Retrofit.Builder()
-            .baseUrl(BASEURL)
+            .baseUrl(Constants.AIR_TICKETS_BASEURL_OFFERS)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

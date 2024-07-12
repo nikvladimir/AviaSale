@@ -13,6 +13,7 @@ import com.alfadroid.airtickets.R
 import com.alfadroid.airtickets.databinding.FragmentAirTicketsBinding
 import com.alfadroid.airtickets.domain.CyrillicInputFilter
 import com.alfadroid.airtickets.presentation.quickbuttons.ComplexRouteFragment
+import com.alfadroid.destination.presentation.DestinationBottomSheetFragment
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -73,8 +74,6 @@ class AirTicketsFragment : Fragment() {
 
     private fun render(state: AirTicketsScreenState.Ready) {
         with(binding) {
-//                    etDeparture.text = state.departure
-//                    etDestination.text = state.destination
             airTicketsAdapter.submitList(state.offers)
             airTicketsAdapter.notifyDataSetChanged()
         }

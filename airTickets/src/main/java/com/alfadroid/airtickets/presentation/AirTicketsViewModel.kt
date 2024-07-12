@@ -4,10 +4,11 @@ package com.alfadroid.airtickets.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.alfadroid.airtickets.R
-import com.alfadroid.common.R as RCommon
 import com.alfadroid.airtickets.domain.usecase.AirTicketsUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
+import java.util.Locale
+import com.alfadroid.common.R as RCommon
 
 class AirTicketsViewModel(useCase: AirTicketsUseCase) : ViewModel() {
 
@@ -20,8 +21,7 @@ class AirTicketsViewModel(useCase: AirTicketsUseCase) : ViewModel() {
                     imageResId = getImageRes(it.id),
                     title = it.title,
                     town = it.town,
-                    price = it.price.value.toString() + " ₽"
-
+                    price = formattedNNumber(it.price.value)
                 )
             }
             screenState.emit(
@@ -75,3 +75,6 @@ enum class Images(val id: Int) {
     LAMPABIKT(id = 3),
 }
 
+private fun formattedNNumber(number: Int): String {
+    return String.format(Locale.ROOT, "%,d", number).replace(',', ' ') + " ₽"
+}

@@ -1,4 +1,4 @@
-package com.alfadroid.airtickets.presentation
+package com.alfadroid.departure.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.alfadroid.airtickets.databinding.FragmentDepartureBinding
+import com.alfadroid.destination.presentation.DestinationBottomSheetFragment
 
 class DepartureFragment : Fragment() {
 
