@@ -21,17 +21,17 @@ class DepartureFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        val date = LocalDate.now()
-        updateDateDayInViews(date)
-        binding.llDepartureDate.setOnClickListener { showDatePickedDialog(date, "back") }
-        binding.llReturnDate.setOnClickListener { showDatePickedDialog(date, direction = "back") }
         return FragmentDepartureBinding.inflate(layoutInflater).root
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val date = LocalDate.now()
+        updateDateDayInViews(date)
 
+        binding.llDepartureDate.setOnClickListener { showDatePickedDialog(date, "back") }
+        binding.llReturnDate.setOnClickListener { showDatePickedDialog(date, direction = "back") }
         binding.ivBackArrow.setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
@@ -47,7 +47,7 @@ class DepartureFragment : Fragment() {
         binding.btnShowAllTickets.setOnClickListener {
             parentFragmentManager.commit {
                 replace(R.id.hostAirTicketsFragment, ViewAllTicketsFragment.newInstance())
-                    .addToBackStack(null).commit()
+                addToBackStack(null)
             }
         }
     }

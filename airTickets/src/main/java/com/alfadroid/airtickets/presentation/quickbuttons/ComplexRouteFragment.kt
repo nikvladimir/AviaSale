@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.alfadroid.airtickets.databinding.FragmentComplexRouteBinding
-import com.alfadroid.destination.presentation.DestinationBottomSheetFragment
 
 class ComplexRouteFragment : Fragment() {
     private val binding: FragmentComplexRouteBinding by viewBinding(FragmentComplexRouteBinding::bind)
@@ -17,12 +16,6 @@ class ComplexRouteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         return FragmentComplexRouteBinding.inflate(layoutInflater).root
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        val bottomSheet = DestinationBottomSheetFragment()
-        bottomSheet.show(parentFragmentManager, "BottomSheetFragment")
     }
 
     companion object {

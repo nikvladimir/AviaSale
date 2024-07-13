@@ -4,6 +4,7 @@ package com.alfadroid.airtickets.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.alfadroid.airtickets.R
+import com.alfadroid.airtickets.domain.Image
 import com.alfadroid.airtickets.domain.usecase.AirTicketsUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
@@ -18,10 +19,11 @@ class AirTicketsViewModel(useCase: AirTicketsUseCase) : ViewModel() {
         viewModelScope.launch {
             val response = useCase.getOffers().map {
                 Item(
-                    imageResId = getImageRes(it.id),
+                    id = it.town,
+                    imageResId = it.image.toImageRes(),
                     title = it.title,
                     town = it.town,
-                    price = formattedNNumber(it.price.value)
+                    price = formattedNNumber(it.price)
                 )
             }
             screenState.emit(
@@ -34,45 +36,13 @@ class AirTicketsViewModel(useCase: AirTicketsUseCase) : ViewModel() {
         }
     }
 
-    private fun getImageRes(id: Int): Int =
-        when (id) {
-            Images.DIE_ANTWOORD.id -> {
-                R.drawable.image_1
-            }
-
-            Images.SOCRAT_LERA.id -> {
-                R.drawable.image_2
-            }
-
-            Images.LAMPABIKT.id -> {
-                R.drawable.image_3
-            }
-
-            else -> {
-                RCommon.drawable.icon_hot_tickets
-            }
+    private fun Image?.toImageRes(): Int =
+        when (this) {
+            Image.DIE_ANTWOORD -> R.drawable.image_1
+            Image.SOCRAT_LERA -> R.drawable.image_2
+            Image.LAMPABIKT -> R.drawable.image_3
+            else -> RCommon.drawable.icon_hot_tickets
         }
-}
-
-sealed interface AirTicketsScreenState {
-
-    object Loading : AirTicketsScreenState
-
-    data class Error(
-        val throwable: Throwable
-    ) : AirTicketsScreenState
-
-    data class Ready(
-        val departure: String,
-        val destination: String,
-        val offers: List<Item>,
-    ) : AirTicketsScreenState
-}
-
-enum class Images(val id: Int) {
-    DIE_ANTWOORD(id = 1),
-    SOCRAT_LERA(id = 2),
-    LAMPABIKT(id = 3),
 }
 
 private fun formattedNNumber(number: Int): String {

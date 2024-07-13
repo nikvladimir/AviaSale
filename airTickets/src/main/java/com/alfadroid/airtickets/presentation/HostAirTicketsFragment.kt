@@ -25,7 +25,7 @@ class HostAirTicketsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (savedInstanceState == null) {
-            childFragmentManager.commit {
+            parentFragmentManager.commit {
                 replace(R.id.hostAirTicketsFragment, AirTicketsFragment.newInstance())
             }
         }

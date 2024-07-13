@@ -84,8 +84,9 @@ class DestinationBottomSheetFragment : BottomSheetDialogFragment() {
 
     private fun fragmentTransaction(fragment: Fragment): View.OnClickListener {
         return View.OnClickListener {
-            childFragmentManager.commit {
-                replace(R.id.hostAirTicketsFragment, fragment).addToBackStack(null)
+            parentFragmentManager.commit {
+                replace(R.id.hostAirTicketsFragment, fragment)
+                addToBackStack(null)
             }
             dismiss()
         }

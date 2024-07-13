@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.alfadroid.airtickets.databinding.RecyclerViewOffersItemBinding
 
 data class Item(
+    val id: String,
     val imageResId: Int,
     val title: String,
     val town: String,
@@ -15,7 +16,7 @@ data class Item(
 class AirTicketsAdapter :
     RecyclerView.Adapter<AirTicketsAdapter.ViewHolder>() {
 
-    private var items: List<Item> = emptyList()
+    var items: List<Item> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(
