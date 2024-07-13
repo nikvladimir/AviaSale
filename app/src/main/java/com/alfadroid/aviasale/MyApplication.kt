@@ -14,7 +14,8 @@ class MyApplication: Application() {
             androidContext(this@MyApplication)
             modules(
                 AirTicketsModule.networkModule +
-                        AirTicketsModule.airTicketsModule
+                        AirTicketsModule.airTicketsModule +
+                        AirTicketsModule.departureModule
             )
         }
     }
