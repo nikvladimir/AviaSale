@@ -66,6 +66,7 @@
                     android:layout_marginEnd="16dp"
                     android:autofillHints="@string/search_departure_city_minsk"
                     android:background="@android:color/transparent"
+                    android:focusableInTouchMode="false"
                     android:hint="@string/search_departure_city_minsk"
                     android:inputType="text"
                     android:textColor="@color/white"
