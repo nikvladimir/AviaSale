@@ -1,8 +1,7 @@
 package com.alfadroid.departure.data.repository
 
-import com.alfadroid.airtickets.data.dto.toOffer
 import com.alfadroid.departure.data.dto.toTicket
-import com.alfadroid.departure.domain.repository.Ticket
+import com.alfadroid.departure.domain.models.Ticket
 import com.alfadroid.network.AirTicketsApi
 import com.alfadroid.departure.domain.repository.TicketsRepository
 

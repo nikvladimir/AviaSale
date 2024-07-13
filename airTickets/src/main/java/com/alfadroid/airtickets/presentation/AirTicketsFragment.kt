@@ -5,14 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.alfadroid.airtickets.R
 import com.alfadroid.airtickets.databinding.FragmentAirTicketsBinding
 import com.alfadroid.airtickets.domain.CyrillicInputFilter
+import com.alfadroid.departure.presentation.DepartureFragment
 import com.alfadroid.destination.presentation.DestinationBottomSheetFragment
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -39,12 +42,21 @@ class AirTicketsFragment : Fragment() {
             adapter = airTicketsAdapter
         }
 
+        binding.tvDeparture.apply {
+            filters = arrayOf(CyrillicInputFilter())
+            setOnClickListener {
+                parentFragmentManager.commit {
+                    replace(R.id.hostAirTicketsFragment, DepartureFragment.newInstance())
+                    addToBackStack(null)
+                }
+            }
+        }
+
         binding.tvDestination.setOnClickListener {
             val bottomSheet = DestinationBottomSheetFragment()
             bottomSheet.show(parentFragmentManager, "BottomSheetFragment")
         }
 
-        binding.tvDeparture.filters = arrayOf(CyrillicInputFilter())
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {

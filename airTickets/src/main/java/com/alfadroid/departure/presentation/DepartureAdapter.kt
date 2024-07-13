@@ -3,7 +3,7 @@ package com.alfadroid.departure.presentation
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.alfadroid.airtickets.databinding.RecyclerViewOffersItemBinding
+import com.alfadroid.airtickets.databinding.RecyclerViewDepartureTicketItemBinding
 import com.alfadroid.departure.domain.models.TicketItem
 
 class DepartureAdapter :
@@ -13,7 +13,7 @@ class DepartureAdapter :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(
-            binding = RecyclerViewOffersItemBinding.inflate(
+            binding = RecyclerViewDepartureTicketItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -21,27 +21,27 @@ class DepartureAdapter :
         )
 
     class ViewHolder(
-        private val binding: RecyclerViewOffersItemBinding,
+        private val binding: RecyclerViewDepartureTicketItemBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: TicketItem) {
             with(binding) {
-//                itemOfferImage.setImageResource(item.imageResId)
-//                itemText.text = item.title
-//                itemOfferDestination.text = item.town
-//                itemOfferPrice.text = item.price
+                tvDepartureTitle.text = item.company
+                ivDepartureCompanyLogo.setImageResource(item.companyImageRes)
+                tvDeparturePrice.text = item.price
+                tvDepartureTimeRange.text = item.timeRanges
             }
         }
     }
 
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) =
         holder.bind(items[position])
-    }
 
-    override fun getItemCount(): Int {
-        return items.size
-    }
+
+    override fun getItemCount(): Int =
+        items.size
+
 
     fun submitList(list: List<TicketItem>) {
         items = list

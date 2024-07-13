@@ -1,6 +1,7 @@
 package com.alfadroid.departure.data.dto
 
-import com.alfadroid.departure.domain.repository.Ticket
+import com.alfadroid.departure.domain.models.AirCompany
+import com.alfadroid.departure.domain.models.Ticket
 import com.google.gson.annotations.SerializedName
 
 data class TicketResponse(
@@ -65,7 +66,7 @@ fun TicketResponse.toTicket() = Ticket(
     badge = badge,
     price = price.value,
     providerName = providerName,
-    company = company,
+    company = company.toAirCompany(),
     departure = departure.toAirport(),
     arrival = arrival.toAirport(),
     hasTransfer = hasTransfer,
@@ -93,4 +94,13 @@ private fun TicketResponse.HandLuggageDTO.toHandLuggage() = Ticket.HandLuggage(
     size = size
 )
 
+private fun String.toAirCompany() =
+    when(this){
+        "Турецкие авиалинии" -> AirCompany.TURKISH_AIRLINES
+        "Уральские авиалинии" -> AirCompany.URAL
+        "Аэрофлот" -> AirCompany.AEROFLOT
+        "Победа" -> AirCompany.POBEDA
+        "Якутия" -> AirCompany.YAKUTIYA
+        else -> AirCompany.UNKNOWN
+    }
 
