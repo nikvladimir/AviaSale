@@ -1,9 +1,9 @@
 package com.alfadroid.airtickets.domain.usecase
 
-import com.alfadroid.airtickets.domain.repository.AirTicketsRepository
 import com.alfadroid.airtickets.domain.repository.Offer
+import com.alfadroid.airtickets.domain.repository.OffersRepository
 
-class AirTicketsUseCase(val repository: AirTicketsRepository) {
+class AirTicketsUseCase(val repository: OffersRepository) {
 
     suspend fun getOffers(): List<Offer> = repository.getOffers()
 }

@@ -1,14 +1,14 @@
 package com.alfadroid.airtickets.data.repository
 
 import com.alfadroid.airtickets.data.dto.toOffer
-import com.alfadroid.airtickets.data.retrofit.OffersApi
-import com.alfadroid.airtickets.domain.repository.AirTicketsRepository
 import com.alfadroid.airtickets.domain.repository.Offer
+import com.alfadroid.airtickets.domain.repository.OffersRepository
+import com.alfadroid.network.AirTicketsApi
 
-class AirTicketsRepositoryImpl(private val api: OffersApi) : AirTicketsRepository {
+class OffersRepositoryImpl(private val api: AirTicketsApi) : OffersRepository {
 
     override suspend fun getOffers(): List<Offer> =
-        api.downloadFile(OFFERS_URL).offers.map {
+        api.getOffers(OFFERS_URL).offers.map {
             it.toOffer()
         }
 

@@ -1,5 +1,5 @@
 package com.alfadroid.airtickets.domain.repository
 
-interface AirTicketsRepository {
+interface OffersRepository {
     suspend fun getOffers(): List<Offer>
 }
